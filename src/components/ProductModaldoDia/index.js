@@ -5,12 +5,12 @@ import { toast } from "react-toastify";
 import api from "../../services/api";
 import { Container, ProductForm } from "./styles";
 
-function ProductModal({ product, closeModal }) {
+function ProductModalDia({ product, closeModal }) {
   const [newProduct, setNewProduct] = useState({
     name: "",
     base_price: "",
     image_id: "",
-    category_id: "",
+    category_id: 9,
     product_sizes: []
   });
   const [images, setImages] = useState([]);
@@ -175,7 +175,9 @@ function ProductModal({ product, closeModal }) {
 
   return (
     <Container id="outsideProductModal">
+		
       <ProductForm onSubmit={handleSubmit}>
+	  <h1>Prato do Dia</h1>
         <h2>{product ? "Editar" : "Criar"} produto</h2>
         <input
           name="name"
@@ -210,8 +212,8 @@ function ProductModal({ product, closeModal }) {
           </select>
         </div>
         <div>
-          <label>Categoria</label>
-          <select
+          {/*<label>Categoria</label>
+          <label
             value={newProduct.category_id}
             name="category_id"
             onChange={handleInputChange}
@@ -223,9 +225,9 @@ function ProductModal({ product, closeModal }) {
                 </option>
               ))}
             <option value="" />
-          </select>
+			  </label>*/}
         </div>
-        <div>
+        {/*<div>
           <label>Tamanhos</label>
           <select
             multiple
@@ -242,7 +244,7 @@ function ProductModal({ product, closeModal }) {
                 </option>
               ))}
           </select>
-        </div>
+			  </div>*/}
         <button type="submit">{loading ? "Carregando..." : "Salvar"}</button>
         <button type="button" className="close" onClick={() => closeModal()}>
           Fechar
@@ -260,4 +262,4 @@ ProductForm.propTypes = {
   product_sizes: PropTypes.arrayOf(PropTypes.number)
 };
 
-export default ProductModal;
+export default ProductModalDia;

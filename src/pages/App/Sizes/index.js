@@ -51,7 +51,7 @@ function Sizes () {
 
       setSizes(data)
     } catch (err) {
-      toast.error("Erro ao carregar localização");
+      toast.error("Erro ao buscar tamanhos");
     }
   };
 
@@ -71,9 +71,9 @@ function Sizes () {
       await api.delete(`admin/sizes/${id}`);
 
       loadSizes();
-      toast.success("A Localização foi deletado!");
+      toast.success("Tamanho deletado!");
     } catch (err) {
-      toast.error("Não foi possível deletar a localização");
+      toast.error("Não foi possível deletar o tamanho");
     }
   };
 
@@ -85,7 +85,7 @@ function Sizes () {
         <SizeDetails>
           <strong>{size.name}</strong>
           <p>
-            <span>Preço: </span>
+            <span>Multiplicador de preço: </span>
             {size.multiplier}
           </p>
           <p>

@@ -22,7 +22,7 @@ function SideBar ({ page, changePage }) {
         className={page === 'Sizes' ? 'active' : ''}
         onClick={() => changePage('Sizes')}
       >
-        Localizações
+        Tamanhos
       </li>
       <li
         className={page === 'Products' ? 'active' : ''}

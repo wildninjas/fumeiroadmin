@@ -117,7 +117,7 @@ function SizeModal({ size, closeModal }) {
   return (
     <Container id="outsideSizeModal">
       <SizeForm onSubmit={handleSubmit}>
-        <h2>{size ? "Editar" : "Criar"} Localização</h2>
+        <h2>{size ? "Editar" : "Criar"} tamanho</h2>
         <input
           name="name"
           value={newSize.name}
@@ -132,7 +132,7 @@ function SizeModal({ size, closeModal }) {
           step="0.01"
           value={newSize.multiplier}
           onChange={handleInputChange}
-          placeholder="Preço"
+          placeholder="Multipicador de preço"
         />
         <div>
           <label>Imagem</label>

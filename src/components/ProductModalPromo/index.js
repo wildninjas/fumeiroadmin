@@ -5,12 +5,12 @@ import { toast } from "react-toastify";
 import api from "../../services/api";
 import { Container, ProductForm } from "./styles";
 
-function ProductModal({ product, closeModal }) {
+function ProductModalPromo({ product, closeModal }) {
   const [newProduct, setNewProduct] = useState({
     name: "",
     base_price: "",
     image_id: "",
-    category_id: "",
+    category_id: 10,
     product_sizes: []
   });
   const [images, setImages] = useState([]);
@@ -175,7 +175,9 @@ function ProductModal({ product, closeModal }) {
 
   return (
     <Container id="outsideProductModal">
+		
       <ProductForm onSubmit={handleSubmit}>
+	  <div style="align:center;"><h2>Promo do Dia</h2></div>
         <h2>{product ? "Editar" : "Criar"} produto</h2>
         <input
           name="name"
@@ -194,7 +196,7 @@ function ProductModal({ product, closeModal }) {
           placeholder="Preço base"
         />
         <div>
-          <label>Imagem</label>
+          <label>Imagem</label><br></br>
           <select
             value={newProduct.image_id}
             name="image_id"
@@ -210,8 +212,8 @@ function ProductModal({ product, closeModal }) {
           </select>
         </div>
         <div>
-          <label>Categoria</label>
-          <select
+          {/*<label>Categoria</label>
+          <label
             value={newProduct.category_id}
             name="category_id"
             onChange={handleInputChange}
@@ -223,9 +225,9 @@ function ProductModal({ product, closeModal }) {
                 </option>
               ))}
             <option value="" />
-          </select>
+			  </label>*/}
         </div>
-        <div>
+        {/*<div>
           <label>Tamanhos</label>
           <select
             multiple
@@ -242,7 +244,7 @@ function ProductModal({ product, closeModal }) {
                 </option>
               ))}
           </select>
-        </div>
+			  </div>*/}
         <button type="submit">{loading ? "Carregando..." : "Salvar"}</button>
         <button type="button" className="close" onClick={() => closeModal()}>
           Fechar
@@ -260,4 +262,4 @@ ProductForm.propTypes = {
   product_sizes: PropTypes.arrayOf(PropTypes.number)
 };
 
-export default ProductModal;
+export default ProductModalPromo;

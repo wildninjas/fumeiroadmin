@@ -25,4 +25,13 @@ export default styled.ul`
   li.active {
     background: #4f1913;
   }
+  .feather {
+	width: 24px;
+	height: 24px;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+  }
 `;
