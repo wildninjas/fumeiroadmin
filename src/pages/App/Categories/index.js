@@ -81,7 +81,6 @@ function Categories() {
 
   function renderCategory(category) {
     return (
-		
       <CategoryCard key={category.id}>
         <CategoryInfo>
           <CategoryImage
@@ -93,10 +92,10 @@ function Categories() {
               <span>Descrição: </span>
               {category.description}
             </p>
-            {/*<p>
+            <p>
               <span>Tempo de preparo: </span>
               {category.cook_time} mins
-            </p>*/}
+            </p>
           </CategoryDetails>
         </CategoryInfo>
         <EditDeleteOptions>

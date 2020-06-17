@@ -109,7 +109,7 @@ function CategoryModal({ category, closeModal }) {
   return (
     <Container id="outsideCategoryModal">
       <CategoryForm onSubmit={handleSubmit}>
-        <h2>{category ? "Editar" : "Criar"} Categoria</h2>
+        <h2>{category ? "Editar" : "Criar"} categoria</h2>
         <input
           name="name"
           value={newCategory.name}

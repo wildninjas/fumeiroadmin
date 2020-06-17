@@ -7,9 +7,7 @@ import { convertToBRL } from '../../../services/currency'
 import api from '../../../services/api'
 
 import NoImage from '../../../assets/images/no-image.jpg'
-import { HeaderMain,SubMenu } from '../../../pages/App/styles'
-import $ from "jquery";
-import jsPDF from 'jspdf'
+
 import {
   Container,
   OrderCard,
@@ -26,7 +24,6 @@ const INITIAL_STATE = {
   enviado: true,
   finalizado: false
 }
-
 
 function filterReducer (state, action) {
   switch (action.type) {
@@ -74,37 +71,6 @@ function Orders () {
       toast.error('Não foi possível atualizar o pedido')
     }
   }
-  function refreshPage() {
-    window.location.reload(false);
-  }
-
-  function dinheiro(condition) {
-    if (condition === 'Dinheiro') {
-      return (
-          <strong>Dinheiro </strong>
-     )
-    } else {
-      return (
-          <strong>MbWay </strong>
-      )
-    }
-  }
-
-
-	   
-  function imprimir() { 
-	 
-	var divContents = document.getElementById("CardPedidos").innerHTML; 
-	var a = window.open('', '', 'height=500, width=500'); 
-	a.document.write('<html><style>#select1 {display: none; }#button1{display: none; }</style>'); 
-	a.document.write(`<body ><br>`); 
-	a.document.write(divContents); 
-	a.document.write('</body></html>'); 
-	a.document.close(); 
-	a.print();
-	  
-} 
-
 
   function renderFilters () {
     return (
@@ -122,38 +88,23 @@ function Orders () {
     )
   }
 
-  
-
-
   function renderOrder (order) {
     return filters[order.status] ? (
-      <OrderCard id="CardPedidos" key={order.id} status={order.status}>
-		  
-		
-		
-		
-		  
-        <div id="pedido" className='orderHeader'>
+      <OrderCard key={order.id} status={order.status}>
+        <div className='orderHeader'>
           <h2>
             Pedido <strong>#{order.id}</strong> - {order.user.name}
           </h2>
-		  
-		  
-		  <div><button id="button1" name="status" onClick={imprimir}>IMPRIMIR</button></div>
-		 
-          <select id="select1"
+          <select
             name='status'
             value={order.status}
             onChange={e => updateOrderStatus(order.id, e.target.value)}
           >
-			  
             <option value='pendente'>pendente</option>
             <option value='cancelado'>cancelado</option>
             <option value='enviado'>enviado</option>
             <option value='pago'>pago</option>
             <option value='finalizado'>finalizado</option>
-
-            
           </select>
         </div>
         <p>
@@ -164,35 +115,11 @@ function Orders () {
         </p>
         <strong>{convertToBRL(Number(order.total))}</strong>
         <ItemsContainer>
-		
           {order.items.map(item => renderItem(item))}
         </ItemsContainer>
-
-         {/*Adicionando os dados que faltavam no painél do administrador*/}
-
         <span>
           <strong>Observações: </strong>
-          {order.observations}<br></br>
-        </span>
-       
-        <span>
-          <strong>Endereço: </strong>
-          {order.street + ' ' + order.number}<br></br>
-        </span>
-        
-        <span>
-          <strong>Concelho: </strong>
-          {order.district}<br></br>
-        </span>
-
-        <span>
-          <strong>Código Postal: </strong>
-          {order.zip_code}<br></br>
-        </span>
-
-        <span>
-		<strong>Forma de Pagamento: </strong>
-          {order.pagamento}<br></br>
+          {order.observations}
         </span>
       </OrderCard>
     ) : null
@@ -210,21 +137,18 @@ function Orders () {
         />
         <div>
           <span>{item.product_size.product.name}</span>
-          <p>Tipo de entrega: {item.product_size.size.name}</p>
+          <p>Tamanho: {item.product_size.size.name}</p>
           <p>Quantidade: {item.quantity}</p>
         </div>
       </ItemCard>
     )
   }
-  
 
   return (
     <Container>
       {renderFilters()}
       {orders.map(order => renderOrder(order))}
-      <button onClick={refreshPage}>Click to reload!</button>
     </Container>
-   
   )
 }
 

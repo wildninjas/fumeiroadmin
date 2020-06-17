@@ -72,69 +72,6 @@ export const OrderCard = styled.div`
   }
 `;
 
-export const MyCards = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  margin: 10px 0;
-
-  box-shadow: 0px 0px 12px -5px rgba(0, 0, 0, 0.75);
-  border-radius: 10px;
-
-  & > div.orderHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    h2 {
-      font-size: 18px;
-      font-weight: normal;
-    }
-
-    select {
-      cursor: pointer;
-      padding: 5px;
-      border: none;
-      border-radius: 10px;
-      font-weight: bold;
-      color: #fff;
-      opacity: 0.7;
-      transition: all 0.3s;
-      background: ${({ status }) =>
-        status === "pendente"
-          ? "orange"
-          : status === "cancelado"
-          ? "red"
-          : "green"};
-
-      &:hover {
-        opacity: 1;
-      }
-
-      option {
-        background: #fff;
-        color: #0b2031;
-      }
-    }
-  }
-
-  & > p {
-    font-size: 12px;
-    color: #706e7b;
-    margin: 8px 0;
-  }
-
-  strong {
-    font-size: 16px;
-  }
-
-  & > span {
-    font-size: 14px;
-    color: #706e7b;
-  }
-`;
-
 export const ItemsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
