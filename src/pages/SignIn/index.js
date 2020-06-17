@@ -8,6 +8,17 @@ import { login } from "../../services/auth";
 import { Container, SignInForm, TesteToast } from "./styles";
 import logo from "../../assets/images/logo2x.png";
 
+require('dotenv').config()
+
+const hostname = process.env.REACT_APP_API_URL;
+//const database = process.env.DATABASE;
+//const port = process.env.PORT;
+
+console.log(hostname);
+//console.log(database);
+//console.log(port);
+
+
 function SignIn({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -63,11 +74,14 @@ function SignIn({ history }) {
       setLoading(false);
     }
   }
+  //mostra qual o REACT_APP_API_URL na tela de login
+  toast.success(hostname);
 
+  
   return (
     <Container>
       <SignInForm onSubmit={handleSignInSubmit}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" width="250"/>
 
         <input
           type="email"

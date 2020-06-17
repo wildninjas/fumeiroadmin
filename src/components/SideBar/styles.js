@@ -4,8 +4,8 @@ export default styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #0b2031;
-  background: #353940;
+  border-right: 1px solid #4f1913;
+  background: #9A212E;
 
   li {
     width: 130px;
@@ -13,16 +13,25 @@ export default styled.ul`
     cursor: pointer;
 
     padding: 20px 10px;
-    border-bottom: 1px solid #0b2031;
+    border-bottom: 1px solid #4f1913;
     border-top: 1px solid transparent;
     transition: all 0.3s;
 
     &:hover {
-      background: #f15454;
+      background: #4f1913;
     }
   }
 
   li.active {
-    background: #e62638;
+    background: #4f1913;
+  }
+  .feather {
+	width: 24px;
+	height: 24px;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
   }
 `;

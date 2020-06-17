@@ -2,6 +2,8 @@ import React from 'react'
 
 import logo from '../../assets/images/logo2x.png'
 
+import SimpleMenu from '../menu'
+
 import { logout } from '../../services/auth'
 
 import { Container, LogoContainer, LogoutContainer } from './styles'
@@ -14,16 +16,15 @@ function Header ({ history }) {
 
   return (
     <Container>
+		
       <LogoContainer>
         <img src={logo} alt='logo' />
-        <h1>Pizzaria Don Juan</h1>
+        <h1>Fumeiro na Brasa</h1>
       </LogoContainer>
       <LogoutContainer>
         <div>
-          <h3>Caio Quirino</h3>
-          <button type='button' onClick={handleLogout}>
-            Sair do app
-          </button>
+          <h3></h3>
+          <SimpleMenu></SimpleMenu>
         </div>
       </LogoutContainer>
     </Container>

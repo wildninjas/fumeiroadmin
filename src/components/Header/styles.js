@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 20px 40px;
 
-  background-color: #0b2031;
+  background-color: #969696;
 `;
 
 export const LogoContainer = styled.div`
@@ -15,8 +15,8 @@ export const LogoContainer = styled.div`
   align-items: center;
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 120px;
+    height: 120px;
   }
 
   h1 {

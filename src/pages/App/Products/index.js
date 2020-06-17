@@ -102,7 +102,7 @@ function Products () {
                 {product.category.name}
               </p>
               <p>
-                <span>Preço base: </span>
+                <span>Preço: </span>
                 {product.base_price_formatted}
               </p>
             </ProductDetails>
@@ -114,14 +114,6 @@ function Products () {
             />
           </EditDeleteOptions>
         </ProductTop>
-        <ProductBottom>
-          {product.sizes.map(product_size => (
-            <p key={product_size.id}>
-              <span>{product_size.size.name}: </span>
-              {convertToBRL(Number(product_size.price))}
-            </p>
-          ))}
-        </ProductBottom>
       </ProductCard>
     )
   }
