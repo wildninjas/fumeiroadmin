@@ -37,14 +37,14 @@ function ProductModal({ product, closeModal }) {
     };
   }, [clickOutside]);
 
-  useEffect(() => {
-    if (product) {
-      setNewProduct({
-        ...product,
-        product_sizes: product.sizes.map(size => size.size_id)
-      });
-    }
-  }, [product]);
+  //useEffect(() => {
+    //if (product) {
+      //setNewProduct({
+       // ...product,
+        //product_sizes: product.sizes.map(size => size.size_id)
+      //});
+    //}
+  //}, [product]);
 
   useEffect(() => {
     loadSizes();
@@ -149,9 +149,7 @@ function ProductModal({ product, closeModal }) {
         base_price,
         image_id,
         category_id,
-        sizes: product_sizes.map(size => ({
-          size_id: size
-        }))
+        
       });
 
       closeModal();
@@ -177,6 +175,7 @@ function ProductModal({ product, closeModal }) {
     <Container id="outsideProductModal">
       <ProductForm onSubmit={handleSubmit}>
         <h2>{product ? "Editar" : "Criar"} produto</h2>
+		<p>{newProduct.name}asdasdasd</p>
         <input
           name="name"
           value={newProduct.name}
@@ -225,24 +224,7 @@ function ProductModal({ product, closeModal }) {
             <option value="" />
           </select>
         </div>
-        <div>
-          <label>Tamanhos</label>
-          <select
-            multiple
-            value={newProduct.product_sizes}
-            name="product_sizes"
-            onChange={e => {
-              handleProductSizesChange(e);
-            }}
-          >
-            {sizes.length &&
-              sizes.map(size => (
-                <option key={size.id} value={size.id}>
-                  {size.name}
-                </option>
-              ))}
-          </select>
-        </div>
+        
         <button type="submit">{loading ? "Carregando..." : "Salvar"}</button>
         <button type="button" className="close" onClick={() => closeModal()}>
           Fechar
