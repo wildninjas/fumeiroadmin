@@ -11,8 +11,8 @@ export default styled.ul`
     width: 130px;
     color: #fff;
     cursor: pointer;
-
-    padding: 20px 10px;
+	text-align: center;
+    padding: 10px 10px;
     border-bottom: 1px solid #4f1913;
     border-top: 1px solid transparent;
     transition: all 0.3s;

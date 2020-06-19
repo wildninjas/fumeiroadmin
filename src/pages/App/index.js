@@ -12,6 +12,7 @@ import ProductModalDia from '../../components/ProductModaldoDia'
 import ProductModalPromo from '../../components/ProductModalPromo'
 import Pratosdodia from './Pratosdodia'
 import Promododia from './Promododia'
+import Suspensos from './Suspensos'
 
 
 
@@ -39,7 +40,7 @@ function App ({ history }) {
   return (
     <Container>
       
-	  <HeaderMain history={history}>
+	  {/*<HeaderMain history={history}>
 	  <LogoContainer>
         <img src={logo} alt='logo' />
         <h1></h1>
@@ -58,9 +59,9 @@ function App ({ history }) {
 		  <div><button id="button1" onClick={() => changePage('Pratosdodia')}>ADICIONAR PRATO DO DIA</button></div>
 		  <div><button id="button1" onClick={() => changePage('Promododia')}>ADICIONAR PROMOÇÃO DO DIA</button></div>
 		  <div><button id="button1" onClick={refreshPage}>ATUALIZAR LISTA DE PEDIDOS</button></div>
-	  </SubMenu>
+	  </SubMenu>*/}
       <Main>
-      
+         <SideBar page={activePage} changePage={changePage} />
 		
         {activePage === 'Orders' ? (
           <Orders />
@@ -74,6 +75,8 @@ function App ({ history }) {
           <Sizes />
         ) : activePage === 'Products' ? (
           <Products />
+		) : activePage === 'Suspensos' ? (
+			<Suspensos />
         ) : activePage === 'Images' ? (
           <Images />
         ) : null}
