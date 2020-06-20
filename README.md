@@ -1,54 +1,55 @@
-# Pizza Delivery - Web
+# Pizza Delivery - API
 
-<img src="/public/pizza-delivery-thumb.png">
+[API Documentation](https://documenter.getpostman.com/view/7189884/SWECXvVh?version=latest)
 
 ## About
 
-This project is part of the final challenge of [Rocketseat bootcamp course](https://rocketseat.com.br/bootcamp). It consists in a delivery application of a fantasy pizza parlor.
+This project is part of the final challenge of [Rocketseat bootcamp course](https://rocketseat.com.br/bootcamp). It's a delivery application of a fantasy pizza parlor.
+
+## What it does?
+
+This application allows the creation of products of different categories and sizes, and order management, which can be done by the administrator on the web. The customer, using the app can view the products, add to cart and place a order. It also allows image upload.
 
 ## Integration
 
-This web app integrates with an [API](https://github.com/CaioQuirinoMedeiros/delivery_api) built with NodeJS and it's designed to manage the application. There's a [mobile app](https://github.com/CaioQuirinoMedeiros/delivery_app) intended for customers
-
-## Try it now
-
-I deployed this project on Netlify, try it out: [pizza-delivery.com](https://pizza-delivery.netlify.com)
-
-- email: `admin@delivery.com`
-- password: `123456`
-
-**Note**
-Remember that this web app is for managing the application, try the [app for customers](https://github.com/CaioQuirinoMedeiros/delivery_app) too
+This AdonisJS API is consumed by an [mobile app](https://github.com/CaioQuirinoMedeiros/delivery_app), for customers, and an [web app](https://github.com/CaioQuirinoMedeiros/delivery_web) for managing. Both were built with React, check them out.
 
 ## :arrow_down: Installing
 
 **Cloning the repo**
 
 ```shell
-git clone https://github.com/CaioQuirinoMedeiros/delivery_web.git
+git clone https://github.com/CaioQuirinoMedeiros/delivery_api.git
 
-cd delivery_web
+cd delivery_api
 ```
 
 **Installing dependencies**
 
 ```shell
-yarn install
+npm install
 ```
 
-## :satellite: Connecting with the server API
+## :wrench: Setting up
 
-1. Follow the instructions on [delivery-api](https://github.com/CaioQuirinoMedeiros/delivery_api) to have the server up and running
-2. Create a _.env_ file and set a variable `REACT_APP_API_URL` with the value of your server url
+**Set the environment variables in a _.env_ file as exemplified in the _.env.example_**
 
-- It should looks like this: `CREATE_APP_API_URL=http://127.0.0.1:3333`
+**Run the migrations to create the database**
+
+```shell
+npx adonis migration:run
+```
+
+**Run the seeds to populate the database**
+
+```shell
+npx adonis seed
+```
 
 ## :runner: Running
-run in development mode
+
+**Just start the server**
+
 ```shell
-yarn start
-```
-or you can build and then serve the build folder
-```shell
-yarn build
+npm run start
 ```

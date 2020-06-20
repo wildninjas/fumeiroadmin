@@ -1,43 +1,46 @@
 {
-  "name": "delivery_web",
-  "version": "0.1.0",
-  "private": true,
-  "author": "Wildgadget",
-  "dependencies": {
-    "@material-ui/core": "^4.10.1",
-    "@material-ui/icons": "^4.9.1",
-    "axios": "^0.19.0",
-    "date-fns": "^1.30.1",
-    "dotenv": "^8.0.0",
-    "feather-icons": "^4.28.0",
-    "jquery": "^3.5.1",
-    "jspdf": "^1.5.3",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-icons": "^3.7.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "react-toastify": "^5.3.1",
-    "styled-components": "^4.3.2"
-  },
+  "name": "delivery_api",
+  "version": "4.1.0",
+  "adonis-version": "4.1.0",
+  "description": "Adonisjs API delivery app",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server.js",
+    "test": "node ace test"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [
+    "adonisjs",
+    "adonis-app"
+  ],
+  "author": "Caio Quirino",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/auth": "^3.0.7",
+    "@adonisjs/bodyparser": "^2.0.5",
+    "@adonisjs/cors": "^1.0.7",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/framework": "^5.0.9",
+    "@adonisjs/ignitor": "^2.0.8",
+    "@adonisjs/lucid": "^6.1.3",
+    "@adonisjs/validator": "^5.0.6",
+    "adonis-acl": "^1.1.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "pg": "^8.0.3",
+    "sqlite3": "^4.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0"
+  },
+  "autoload": {
+    "App": "./app"
+  }
 }
